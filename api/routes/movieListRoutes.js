@@ -3,12 +3,28 @@ module.exports = function(app){
     var movieList = require('../controllers/movieListController')
     // var cors = require('cors');
     // app.use(cors())
-    app.route('/Movie')
-        .get(movieList.listAllMovie)
-        .post(movieList.createAMovie)
+    app.route('/signup') 
+        .get(movieList.createAccount)
+    
+    app.route('/signin/:Username')
+        .get(movieList.findAccount)
 
-    app.route('/Movie/:movieId')
-        .get(movieList.readAMovie)
-        // .delete(movieList.deleteAMovie)
-        .post(movieList.updateAMovie)
+    app.route('/getMovies')
+        .get(movieList.listAllMovies)
+
+    app.route('/getMovies/details/:movieId')
+        .get(movieList.readMovies)
+    
+    app.route('/getShowtime/:movieId')
+        .get(movieList.readMovies)
+
+    app.route('/editmovie/:movieId')
+        .get(movieList.readMovies)
+
+    app.route('/editmovie/update/:movieId')
+        .post(movieList.updateMovies)
+
+    app.route('/editmovie/add/:movieId')
+        .post(movieList.createMovie)
+        .get(movieList.readMovies)
 }

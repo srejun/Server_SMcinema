@@ -2,28 +2,28 @@
 var mongoose = require('mongoose')
 Movie = mongoose.model('Movie')
 
-exports.listAllMovie = function(req, res){
-    var query = { sort: { movieName: 1 } }
-    Movie.find({}, null, query, function(err, movie){
+exports.listAllMovies = function(req, res){
+    var query = { sort: { _id: 1 } }
+    Movie.find({}, null, query, function(err, user){
         if(err) throw err
-        //console.log(movie)
-        res.json(movie)
+        //console.log(user)
+        res.json(user)
     })
 }
 
-exports.createAMovie = function(req, res){
+exports.createMovie = function(req, res){
     var newMovie = new Movie(req.body)
-    newMovie.save(function(err, movie){
+    newMovie.save(function(err, user){
         if(err) throw err
-        res.json(movie)
+        res.json(user)
     })
 }
 
-exports.readAMovie = function(req, res){
-    //console.log(req.params.userId)
-    Movie.findById(req.params.movieId, function(err, movie){
+exports.readMovies = function(req, res){
+    console.log(req.params.movieId)
+    Movie.findById(req.params.movieId, function(err, user){
         if(err) throw err
-        res.json(movie)
+        res.json(user)
     })
 }
 
@@ -39,14 +39,14 @@ exports.readAMovie = function(req, res){
 //     })
 // }
 
-exports.updateAMovie = function(req, res){
-    //console.log(req.params.userId)
+exports.updateMovies = function(req, res){
+    console.log(req.params.movieId)
     var newMovie = {}
     newMovie = req.body
-    //console.log(newUser)
-    Movie.findByIdAndUpdate(req.params.movieId, newMovie, {new: true}, function(err, movie){
+    console.log(newMovie)
+    Movie.findByIdAndUpdate(req.params.movieId, newMovie, {new: true}, function(err, user){
         if(err) throw err
-        //console.log(movie)
-        res.json(movie)
+        console.log(user)
+        res.json(user)
     })
 }
