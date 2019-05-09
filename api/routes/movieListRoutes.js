@@ -3,11 +3,6 @@ module.exports = function(app){
     var movieList = require('../controllers/movieListController')
     // var cors = require('cors');
     // app.use(cors())
-    app.route('/signup') 
-        .get(movieList.createAccount)
-    
-    app.route('/signin/:Username')
-        .get(movieList.findAccount)
 
     app.route('/getMovies')
         .get(movieList.listAllMovies)

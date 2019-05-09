@@ -3,11 +3,11 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 var MovieSchema = new Schema({
-    movieNameThai: {
+    movieName: {
         type: String,
         Required: 'Please enter'
     },
-    movieName: {
+    movieNameThai: {
         type: String,
         Required: 'Please enter'
     },
@@ -50,4 +50,4 @@ var MovieSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('Movie', MovieSchema)
+module.exports = mongoose.model('movies', MovieSchema)

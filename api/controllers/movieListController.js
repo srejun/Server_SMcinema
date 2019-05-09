@@ -1,6 +1,6 @@
 'use strict'
 var mongoose = require('mongoose')
-Movie = mongoose.model('Movie')
+Movie = mongoose.model('movies')
 
 exports.listAllMovies = function(req, res){
     var query = { sort: { _id: 1 } }
@@ -26,18 +26,6 @@ exports.readMovies = function(req, res){
         res.json(user)
     })
 }
-
-// exports.deleteAMovie = function(req, res){
-//     //console.log(req.params.userId)
-//     Movie.findByIdAndUpdate(req.params.movieId, function(err, movie){
-//         if(err) throw err
-//         // const response = {
-//         //     message: "Delete movie id: "+ req.params.userId +" successfully",
-//         //     id: movie._id
-//         // }
-//         // res.json(response)
-//     })
-// }
 
 exports.updateMovies = function(req, res){
     console.log(req.params.movieId)
